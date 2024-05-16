@@ -25,6 +25,12 @@
   #inputArea {
     display: grid;
   }
+  label {
+      font-size: smaller;
+  }
+  input {
+      margin: 0 0 .4rem 0;
+  }
     </style>
 </head>
 
@@ -34,12 +40,19 @@
         <p>
         Please add the details to the form and click "Generate code".
         </p>
+        <label for="youtubeID">YouTube ID</label>
         <input type="text" id="youtubeID" placeholder="YouTube ID">
-        <input type="text" id="youtubeTitle" placeholder="YouTube Title">
+        <label for="youtubeTitle">YouTube ID</label>
+        <input type="text" id="YouTube Title" placeholder="YouTube Title">
+        <label for="productTitle">Product Title</label>
         <input type="text" id="productTitle" placeholder="Product Title">
+        <label for="productURL">Product URL</label>
         <input type="text" id="productURL" placeholder="Product URL">
+        <label for="variantCount">x Variants from</label>
         <input type="text" id="variantCount" placeholder="Variant Count">
+        <label for="reviewCount">Review Count</label>
         <input type="text" id="reviewCount" placeholder="Review Count">
+        <label for="startingPrice">Starting Price</label>
         <input type="text" id="startingPrice" placeholder="Starting Price">
         <button onclick="generateCode()">Generate Code</button>
     </div>
