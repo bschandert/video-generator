@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sponsored Video Code Generator</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+    :root {
+    --bg: #fff;
+    --accent-bg: #f5f7ff;
+    --text: #333;
+    --text-light: #585858;
+    --border: #767676;
+    --accent: #3c9700;
+    --accent-hover:#286400;
+    --accent-light: yellow;
+    --code: #d81b60;
+    --preformatted: #444;
+    --marked: #ffdd33;
+    --disabled: #efefef;
+  }
+  #outputArea {
+    margin-top:30px;
+  }
+    </style>
+</head>
+
+<body>
+    <div id="inputArea">
+        <h1>Sponsored Video Code Generator</h1>
+        <p>
+        Please add the details to the form and click "Generate code".
+        </p>
+        <input type="text" id="youtubeID" placeholder="YouTube ID">
+        <input type="text" id="youtubeTitle" placeholder="YouTube Title">
+        <input type="text" id="productTitle" placeholder="Product Title">
+        <input type="text" id="productURL" placeholder="Product URL">
+        <input type="text" id="variantCount" placeholder="Variant Count">
+        <input type="text" id="reviewCount" placeholder="Review Count">
+        <input type="text" id="startingPrice" placeholder="Starting Price">
+        <button onclick="generateCode()">Generate Code</button>
+    </div>
+    <div id="outputArea">
+    <p>
+      You can copy the code from this textfield into your activity.
+    </p>
+        <textarea id="codeOutput" readonly>Your code will appear here...</textarea>
+        <button onclick="copyToClipboard()">Copy Code to Clipboard</button>
+    </div>
+    <script>
+        function generateCode() {
+            // Get the user input
+            let youtubeID = document.getElementById('youtubeID').value;
+            let youtubeTitle = document.getElementById('youtubeTitle').value;
+            let productTitle = document.getElementById('productTitle').value;
+            let productURL = document.getElementById('productURL').value;
+            let variantCount = document.getElementById('variantCount').value;
+            let reviewCount = document.getElementById('reviewCount').value;
+            let startingPrice = document.getElementById('startingPrice').value;
+
+
+            // Your existing script as a string, with placeholders for the user input
+            let scriptTemplate = `
+    <section class="video-ad-wrapper">
+    <style type="text/css">
+    .video-ad-wrapper {
+        width: 100%;
+        padding: 0 15px;
+    }
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+      border-radius: 6px;
+    }
+
+    /* Then style the iframe to fit in the container div with full height and width */
+    .responsive-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* container */
+    .parent {
+        display:flex;
+        flex-wrap:wrap;
+        margin: 30px 0;
+        border-radius: 14px;
+        padding: 8px;
+        background: #fff;
+        border: 1px solid #e6e6e6;
+}
+
+    /* columns */
+    .div1 {
+        width:100%;
+    }
+
+    /* columns */
+    .div2 {
+        width:100%;
+        padding-left: 0;
+        padding-top: 16px;
+    }
+
+    /* tablet breakpoint */
+    @media (min-width:768px) {
+        .div1 {
+            width:50%;
+        }
+        .div2 {
+            width:50%;
+            padding-top: 0;
+            padding-left: 16px;
+        }
+    }
+        
+    @media (min-width: 600px) {
+      .video-h2 { 
+        font-size: var(--z-font-size-xl);
+       }
+    }
+
+    </style>
+
+    <div class="parent">
+        <div class="div1">
+            <div class="video-container">
+                <iframe class="responsive-iframe" src="https://www.youtube.com/embed/{youtubeID}?controls=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=FAYkh_ACXk4" title="{youtubeTitle}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="div2">
+            <div data-zta="SponsoredTagUIC" class="z-sponsored-tag">Gesponsert<svg fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="none" class="z-sponsored-tag__icon"><path d="M20.485 3.515c4.687 4.686 4.687 12.284 0 16.97-4.686 4.687-12.284 4.687-16.97 0-4.687-4.686-4.687-12.284 0-16.97 4.686-4.687 12.284-4.687 16.97 0Zm-15.91 1.06c-4.1 4.1-4.1 10.75 0 14.85s10.75 4.1 14.85 0 4.1-10.75 0-14.85-10.75-4.1-14.85 0ZM11.25 9.75a1.5 1.5 0 0 1 1.5 1.5V15c0 .414.336.75.75.75h.75a.75.75 0 1 1 0 1.5h-.75A2.25 2.25 0 0 1 11.25 15v-3.75h-.75a.75.75 0 0 1 0-1.5h.75ZM11.625 6a1.125 1.125 0 1 1 0 2.25 1.125 1.125 0 0 1 0-2.25Z" fill-rule="evenodd"></path></svg></div><h2 class="ProductGridItem_productTitle__r96cj video-h2"><a data-zta="product-link" class="ProductGridItem_anchor__MWwGC ProductGridItem_productTitleAnchor__op03_" id="10342" href="{productURL}" title="{productTitle}">{productTitle}</a></h2><div class="ProductGridItem_reviewBox__bdOah"><span class="ProductGridItem_ratingContainer__qiydC"><svg fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" class="RatingBar_icon__ZqyZI RatingBar_iconFullStar__y0c1w" data-zta="full-star"><path d="M8.583 8.337 10.95 3.64a1.177 1.177 0 0 1 2.094 0l.002.003 2.37 4.696 4.513.447a1.166 1.166 0 0 1 .725 1.99l-3.741 3.709 1.387 5.041a1.172 1.172 0 0 1-1.656 1.35l-4.647-2.301-4.637 2.296a1.172 1.172 0 0 1-1.658-1.353l1.386-5.036-3.744-3.708a1.166 1.166 0 0 1 .716-1.99l4.522-.448Z" fill-rule="evenodd"></path></svg><svg fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" class="RatingBar_icon__ZqyZI RatingBar_iconFullStar__y0c1w" data-zta="full-star"><path d="M8.583 8.337 10.95 3.64a1.177 1.177 0 0 1 2.094 0l.002.003 2.37 4.696 4.513.447a1.166 1.166 0 0 1 .725 1.99l-3.741 3.709 1.387 5.041a1.172 1.172 0 0 1-1.656 1.35l-4.647-2.301-4.637 2.296a1.172 1.172 0 0 1-1.658-1.353l1.386-5.036-3.744-3.708a1.166 1.166 0 0 1 .716-1.99l4.522-.448Z" fill-rule="evenodd"></path></svg><svg fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" class="RatingBar_icon__ZqyZI RatingBar_iconFullStar__y0c1w" data-zta="full-star"><path d="M8.583 8.337 10.95 3.64a1.177 1.177 0 0 1 2.094 0l.002.003 2.37 4.696 4.513.447a1.166 1.166 0 0 1 .725 1.99l-3.741 3.709 1.387 5.041a1.172 1.172 0 0 1-1.656 1.35l-4.647-2.301-4.637 2.296a1.172 1.172 0 0 1-1.658-1.353l1.386-5.036-3.744-3.708a1.166 1.166 0 0 1 .716-1.99l4.522-.448Z" fill-rule="evenodd"></path></svg><svg fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" class="RatingBar_icon__ZqyZI RatingBar_iconFullStar__y0c1w" data-zta="full-star"><path d="M8.583 8.337 10.95 3.64a1.177 1.177 0 0 1 2.094 0l.002.003 2.37 4.696 4.513.447a1.166 1.166 0 0 1 .725 1.99l-3.741 3.709 1.387 5.041a1.172 1.172 0 0 1-1.656 1.35l-4.647-2.301-4.637 2.296a1.172 1.172 0 0 1-1.658-1.353l1.386-5.036-3.744-3.708a1.166 1.166 0 0 1 .716-1.99l4.522-.448Z" fill-rule="evenodd"></path></svg><svg fill="currentColor" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" class="RatingBar_icon__ZqyZI RatingBar_iconEmptyStar__Veive" data-zta="empty-star"><path d="M8.583 8.337 10.95 3.64a1.177 1.177 0 0 1 2.094 0l.002.003 2.37 4.696 4.513.447a1.166 1.166 0 0 1 .725 1.99l-3.741 3.709 1.387 5.041a1.172 1.172 0 0 1-1.656 1.35l-4.647-2.301-4.637 2.296a1.172 1.172 0 0 1-1.658-1.353l1.386-5.036-3.744-3.708a1.166 1.166 0 0 1 .716-1.99l4.522-.448Z" fill-rule="evenodd"></path></svg></span><small class="ProductGridItem_numberOfReviews__mELaH">(<!-- -->{reviewCount}<!-- -->)</small></div><span class="ProductGridItem_blockSpan__FCYaz">{variantCount}<!-- --> <!-- -->Varianten<!-- --> <!-- -->ab</span><span class="ProductGridItem_productPrice__OXPoO ProductGridItem_productPriceReduced__flYe1">{startingPrice} €</span>
+            <div>
+        </div>
+    </div>
+</section>
+            `;
+
+            // Replace the placeholders with the actual user input
+            let updatedScript = scriptTemplate
+                .replace("{youtubeID}", youtubeID)
+                .replace("{youtubeTitle}", youtubeTitle)
+                .replace("{productTitle}", productTitle)
+                .replace("{productURL}", productURL)
+                .replace("{variantCount}", variantCount)
+                .replace("{reviewCount}", reviewCount)
+                .replace("{startingPrice}", startingPrice);
+
+            updatedScript = '`' + updatedScript + '`';
+
+            // Now updatedScript contains the updated code
+            document.getElementById('codeOutput').value = `
+            <script>(function () {
+    let advantages = ` + 
+
+            updatedScript + 
+            `;  setTimeout(function () {
+        let anchorElement = document.querySelectorAll("[data-zta='advantages-teaser-component']")[0];
+
+        anchorElement.insertAdjacentHTML('afterend', advantages);
+    }, 1);
+})()` +
+            `</script` + `>`
+        }
+
+        function copyToClipboard() {
+            let codeOutput = document.getElementById('codeOutput').value;
+            navigator.clipboard.writeText(codeOutput).catch("looks like you have to copy it manually.")
+        }
+    </script>
+</body>
+
+</html>
