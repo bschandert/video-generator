@@ -94,7 +94,7 @@
 
             // Your existing script as a string, with placeholders for the user input
             let scriptTemplate = `
-    <section class="video-ad-wrapper">
+<section class="video-ad-wrapper">
     <style type="text/css">
     .video-ad-wrapper {
         width: 100%;
@@ -128,7 +128,7 @@
         padding: 8px;
         background: #fff;
         border: 1px solid #e6e6e6;
-}
+    }
 
     /* columns */
     .div1 {
@@ -191,18 +191,16 @@
 
             // Now updatedScript contains the updated code
             document.getElementById('codeOutput').value = `
-            <script>(function () {
+<script>(function () {
     let advantages = ` + 
-
-            updatedScript + 
-            `;  setTimeout(function () {
-        let anchorElement = document.querySelectorAll("[data-zta='advantages-teaser-component']")[0];
-
+        updatedScript + 
+        `;  setTimeout(function () {
+    let anchorElement = document.querySelectorAll("[data-zta='advantages-teaser-component']")[0];
         anchorElement.insertAdjacentHTML('afterend', advantages);
     }, 1);
 })()` +
-            `</script` + `>`
-        }
+`</script` + `>`
+}
 function copyToClipboard() {
     /* Get the text field */
     var copyText = document.getElementById("codeOutput");
@@ -217,7 +215,6 @@ function copyToClipboard() {
             alert('Error in copying text: ' + error);
         });
 }
-    </script>
+</script>
 </body>
-
 </html>
