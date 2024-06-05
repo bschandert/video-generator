@@ -91,7 +91,7 @@
         function generateCode() {
             // Get the user input
             let youtubeID = document.getElementById('youtubeID').value;
-            let youtubeID = document.getElementById('youtubeID').value;
+            let youtubeID = document.getElementById('youtubeID-1').value;
             let youtubeTitle = document.getElementById('youtubeTitle').value;
             let productTitle = document.getElementById('productTitle').value;
             let productURL = document.getElementById('productURL').value;
@@ -173,7 +173,7 @@
     <div class="parent">
         <div class="div1">
             <div class="video-container">
-                <iframe class="responsive-iframe" src="https://www.youtube.com/embed/{youtubeID}?controls=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={youtubeID}" title="{youtubeTitle}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                <iframe class="responsive-iframe" src="https://www.youtube.com/embed/{youtubeID}?controls=1&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist={youtubeID-1}" title="{youtubeTitle}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                 </iframe>
             </div>
         </div>
@@ -188,7 +188,7 @@
             // Replace the placeholders with the actual user input
             let updatedScript = scriptTemplate
                 .replace("{youtubeID}", youtubeID)
-                .replace("{youtubeID}", youtubeID)
+                .replace("{youtubeID-1}", youtubeID)
                 .replace("{youtubeTitle}", youtubeTitle)
                 .replace("{productTitle}", productTitle)
                 .replace("{productURL}", productURL)
