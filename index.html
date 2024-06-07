@@ -133,11 +133,12 @@
     .parent {
         display:flex;
         flex-wrap:wrap;
-        margin: 30px 0;
+        margin: 30px auto;
         border-radius: 14px;
         padding: 8px;
         background: #fff;
         border: 1px solid #e6e6e6;
+        max-width: 1024px;
     }
 
     /* columns */
@@ -205,7 +206,7 @@
     let advantages = ` + 
         updatedScript + 
         `;  setTimeout(function () {
-    let anchorElement = document.querySelectorAll("[data-zta='advantages-teaser-component']")[0];
+    let anchorElement = document.querySelectorAll("[data-zta='page-content']")[0];
         anchorElement.insertAdjacentHTML('afterend', advantages);
     }, 1);
 })()` +
