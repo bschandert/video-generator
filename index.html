@@ -67,6 +67,7 @@
 <body>
     <div id="inputArea">
         <h1>Sponsored Video Code Generator for Product Listing</h1>
+        <img id="example" src="example.png">
         <p>
         Use to inject the sponsored video component after the USP box in product listing pages.
         </p>
@@ -96,7 +97,6 @@
         <textarea id="codeOutput" readonly>Your code will appear here...</textarea>
         <button onclick="copyToClipboard()">Copy Code to Clipboard</button>
     </div>
-    <img src="example.png">
     <script>
         function generateCode() {
             // Get the user input
@@ -175,6 +175,11 @@
     @media (min-width: 600px) {
       .video-h2 { 
         font-size: var(--z-font-size-xl);
+       }
+       #example {
+        margin-left: calc(-37.5vw + 50%);
+        width: 75vw;
+        display: flex;
        }
     }
 
