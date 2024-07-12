@@ -55,10 +55,16 @@
     font-size: initial;
     color: #c0c0c0;
 }
-    img {
-        max-width: 100%;
-        height: auto;
-        margin-top: 1rem;
+
+    @media (min-width: 600px) {
+      .video-h2 { 
+        font-size: var(--z-font-size-xl);
+       }
+       #example {
+        margin-left: calc(-37.5vw + 50%);
+        width: 75vw;
+        display: flex;
+       }
     }
 
     </style>
@@ -175,11 +181,6 @@
     @media (min-width: 600px) {
       .video-h2 { 
         font-size: var(--z-font-size-xl);
-       }
-       #example {
-        margin-left: calc(-37.5vw + 50%);
-        width: 75vw;
-        display: flex;
        }
     }
 
