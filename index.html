@@ -55,6 +55,12 @@
     font-size: initial;
     color: #c0c0c0;
 }
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 1rem;
+    }
+
     </style>
 </head>
 
@@ -90,6 +96,7 @@
         <textarea id="codeOutput" readonly>Your code will appear here...</textarea>
         <button onclick="copyToClipboard()">Copy Code to Clipboard</button>
     </div>
+    <img src="example.png">
     <script>
         function generateCode() {
             // Get the user input
